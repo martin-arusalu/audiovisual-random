@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>Muusika</title>
+		<meta charset="utf-8">
+		<script src="jquery.js"></script>
+		<style>
+			body {
+				background-color: #111;
+				overflow-y:hidden;
+			}
+			path {
+				stroke-width: 2px;
+				stroke-dasharray: 1;
+				stroke-dashoffset: 1;
+				fill: none;
+			}
+			@keyframes draw {
+				to {
+					stroke-dashoffset: 0;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<svg id="soundSvg"></svg>
+		<script src="snap.svg-min.js"></script>
+		<script src="script.js"></script>
+	</body>
+</html>

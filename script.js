@@ -22,7 +22,7 @@ var bodyElem = document.querySelector('body');
 
 svg.attr('viewBox', "0 0 " + ww + " " + wh);
 
-$(document).ready(function () {
+function main() {
   audioCtx = new (window.AudioContext || window.webkitAudioContext)();
   distortion = audioCtx.createWaveShaper();
   distortion.curve = makeDistortionCurve(400);
@@ -34,7 +34,9 @@ $(document).ready(function () {
     gains.push(gain);
   }
   start();
-});
+}
+
+main()
 
 document.onclick = () => audioCtx.resume();
 
@@ -96,7 +98,7 @@ function start() {
     shape = svg.path(getPath(note, volume));
     shape.attr('pathLength', 1);
     shape.attr('stroke', "rgba(255,255,255," + volume + ")");
-    $(shape.node).css('animation', (duration) + 'ms draw forwards')
+    shape.node.style = (`animation:${duration}ms draw forwards`)
     svg.add(shape);
   }
 
